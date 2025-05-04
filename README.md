@@ -1,1 +1,1 @@
-# hivenode
+# Welcome to the Hivebox!
