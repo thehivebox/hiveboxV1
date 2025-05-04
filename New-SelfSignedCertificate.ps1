@@ -1,0 +1,1 @@
+New-SelfSignedCertificate -DnsName dc00.ehancock.us -CertStoreLocation cert:\LocalMachine\My
