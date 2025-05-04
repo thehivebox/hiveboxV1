@@ -1,0 +1,37 @@
+https://github.com/dotnet/cli-lab/releases - Microsoft NET Core SDK Uninstall Tool 
+https://learn.microsoft.com/en-us/dotnet/core/additional-tools/uninstall-tool-overview?pivots=os-windows - Overview
+https://learn.microsoft.com/en-us/dotnet/core/additional-tools/uninstall-tool-cli-list?pivots=os-windows - List
+https://learn.microsoft.com/en-us/dotnet/core/additional-tools/uninstall-tool-cli-dry-run?pivots=os-windows - Dry Run
+https://learn.microsoft.com/en-us/dotnet/core/additional-tools/uninstall-tool-cli-remove?pivots=os-windows - Remove
+
+File Paths:
+
+C:\dotnet-core-uninstall
+cd "C:\Program Files (x86)\dotnet-core-uninstall"
+
+Microsoft NET Core SDK Uninstall Tool Deploy:
+
+msiexec.exe /i c:\temp\netremover.msi /qn+
+
+Microsoft NET Core SDK Uninstall Tool Removal:
+
+msiexec.exe /x c:\temp\netremover.msi /qn+
+
+Microsoft NET Core SDK Uninstall Tool List (All .NET Information):
+
+dotnet --info
+
+Microsoft NET Core SDK Uninstall Tool List (To Be Uninstalled w/ Tool):
+
+dotnet-core-uninstall list
+
+Microsoft NET Core SDK Uninstall Tool Execute WhatIf SDK/Runtime:
+
+dotnet-core-uninstall dry-run --sdk --all-but-latest --force
+dotnet-core-uninstall dry-run --runtime --all-but-latest --force
+
+Microsoft NET Core SDK Uninstall Tool Execute Remove SDK/Runtime
+dotnet-core-uninstall remove --sdk --all-but-latest --yes --verbosity q --force
+dotnet-core-uninstall remove --runtime --all-but-latest --yes --verbosity q --force
+
+C:\Program Files (x86)\dotnet-core-uninstall
