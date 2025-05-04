@@ -1,1 +1,4 @@
+#First option
 %systemroot%\System32\oobe\BypassNRO.cmd
+#Second option
+start ms-cxh:localonly
