@@ -1,6 +1,6 @@
 $ConfigName = "Barracuda Cloud Archiving Service - bma_83ad52ce"
 $BarracudaDomain = "mas.barracudanetworks.com"
-$TenantId = "bma_83ad52ce-53a9-4de6-b02e-60ddc3bbacaf"
+$TenantId = ""
 
 Import-Module -Name ExchangeOnlineManagement
 
