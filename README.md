@@ -12,8 +12,7 @@ This project was initiated by **Dakota Halvorson** in 2025 with the goal of prov
 
 - **Scripts**: A variety of scripts for automation, monitoring, and management.
 - **Tools**: Custom-built tools to aid in IT tasks.
-- **Documentation**: Detailed guides and documentation for each tool and script.
 
 ## Getting Started
 
-To get started, clone the repository and explore the contents. Each tool and script comes with its own documentation to help you understand its usage and implementation.
+To get started, clone the repository and explore the contents. 
