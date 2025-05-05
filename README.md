@@ -13,6 +13,8 @@ This project was initiated by **Dakota Halvorson** in 2025 with the goal of prov
 - **Scripts**: A variety of scripts for automation, monitoring, and management.
 - **Tools**: Custom-built tools to aid in IT tasks.
 
+## DISCLAIMER | SCRIPTER BEWARE: All scripts are designed to run silently. 
+
 ## Getting Started
 
-To get started, clone the repository and explore the contents. 
+To get started, clone the repository and explore the contents. Please keep in mind that this repository is a work in progress.
