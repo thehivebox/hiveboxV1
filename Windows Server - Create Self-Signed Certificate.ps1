@@ -1,1 +1,1 @@
-New-SelfSignedCertificate -DnsName dc00.ehancock.us -CertStoreLocation cert:\LocalMachine\My
+New-SelfSignedCertificate -DnsName "dc name goes here" -CertStoreLocation cert:\LocalMachine\My
