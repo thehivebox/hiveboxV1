@@ -1,4 +1,4 @@
-# EXECUTION POLICY FORCE (RemoteSigned, Process)
+# EXECUTION POLICY FORCE (RemoteSigned, CurrentUser)
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
 # VPN Parameter(s) Prompt
