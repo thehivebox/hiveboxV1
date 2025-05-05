@@ -1,5 +1,5 @@
 # EXECUTION POLICY FORCE (RemoteSigned, CurrentUser)
-Set-ExecutionPolicy -ExecutionPolicy ByPass -Scope Process -Force
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 
 # Validate Username
 function Validate-Username {
