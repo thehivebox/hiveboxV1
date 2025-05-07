@@ -6,14 +6,12 @@ Welcome to the IT/MSP Tools and Scripts Collection! This repository is a curated
 
 ## About the Project
 
-This project was initiated by **Dakota Halvorson** in 2025 with the goal of providing a comprehensive resource for IT professionals and MSPs. The tools and scripts included here aim to streamline workflows, automate repetitive tasks, and enhance overall efficiency in IT operations.
+This project was initiated by **Dakota Halvorson** in 2025 with the goal of providing a comprehensive resource for IT professionals and MSPs. The tools and scripts included here aim to streamline workflows, automate repetitive tasks, and enhance overall efficiency in IT operations. All tools and scripts have been vetted/utilized within Dakota's workflow(s). 
 
 ## Contents
 
 - **Scripts**: A variety of scripts for automation, monitoring, and management.
 - **Tools**: Custom-built tools to aid in IT tasks.
-
-## DISCLAIMER | SCRIPTER BEWARE: All scripts are designed to run silently. 
 
 ## Getting Started
 
