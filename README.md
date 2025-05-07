@@ -1,4 +1,4 @@
-# Welcome to the Hivebox (Version 1)!
+# Welcome to the Hivebox!
 
 # IT/MSP Tools and Scripts Collection
 
