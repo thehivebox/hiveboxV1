@@ -15,4 +15,4 @@ This project was initiated by **Dakota Halvorson** in 2025 with the goal of prov
 
 ## Getting Started
 
-To get started, clone the repository and explore the contents. Please keep in mind that this repository is a work in progress.
+To get started, clone the repository and explore the contents. Please keep in mind that this repository is to be treated as "live" and will be updated frequently. 
