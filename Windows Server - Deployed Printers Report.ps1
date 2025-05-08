@@ -1,4 +1,3 @@
-# Start
 
 # Import Module
 Import-Module ActiveDirectory
