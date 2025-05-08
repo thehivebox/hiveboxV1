@@ -1,3 +1,5 @@
+#
+
 
 # Import Module
 Import-Module ActiveDirectory
@@ -5,13 +7,13 @@ Import-Module ActiveDirectory
 # Execution Policy: (RemoteSigned, CurrentUser, Force)
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
-# Get all printers
+# Give me all the Printers
 $printers = Get-Printer
 
-# Create an array to store printer details
+# Array for Printer Deets
 $printerDetails = @()
 
-# Loop through each printer and get its properties
+# Printer Loop | Property Hunter
 foreach ($printer in $printers) {
     $printerName = $printer.Name
     $printerProperties = Get-PrinterProperty -PrinterName $printerName
@@ -25,9 +27,9 @@ foreach ($printer in $printers) {
         DeploymentDate = $printer.CreationTime
     }
 
-    # Add the custom object to the array
+    # Add Custom PrinterDetail Object to Array
     $printerDetails += $printerDetail
 }
 
-# Export the results to a CSV file
+# Export PrinterDetail(s) to PrintManagementResults.csv on c:\temp. 
 $printerDetails | Export-Csv -Path "c:\temp\PrintManagementResults.csv" -NoTypeInformation
