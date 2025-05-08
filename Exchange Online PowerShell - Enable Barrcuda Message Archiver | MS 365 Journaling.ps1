@@ -1,4 +1,10 @@
-# Define configuration variables
+# This script was supplied via Barracuda Network Technical Support (please remember to insert your own Tenant ID into Line 7). Connect to Exchange Online. 
+<# Summary:
+ Connects to Exchange Online with sign-in (banner included) prompt. After the outbound connector is built, a journaling rule is created if thee outbound connector and/or journaling rule doesn't already exist.
+#>
+
+
+# Define configuration variables | must input Tenant ID
 $ConfigName = "Barracuda Cloud Archiving Service - bma_83ad52ce"
 $BarracudaDomain = "mas.barracudanetworks.com"
 $TenantId = ""
