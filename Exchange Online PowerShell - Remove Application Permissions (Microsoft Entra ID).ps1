@@ -1,6 +1,6 @@
 #Remove app permissions from a Microsoft Entra ID application in a tenant. Used during the CoPilot | MS 365 CoPilot "scare" to remove existing user application permissions. 
 
-# Variables
+# Pretty Color Variables
 $systemMessageColor = "cyan"
 $processMessageColor = "green"
 $errorMessageColor = "red"
@@ -25,7 +25,7 @@ Connect-MgGraph -Scopes "User.ReadWrite.All", "Application.ReadWrite.All", "Dele
 $results = Get-MgServicePrincipal -All | Select-Object Id, AppId, DisplayName | Sort-Object DisplayName | Out-GridView -PassThru -Title "Select Application (Multiple selections permitted)"
 foreach ($result in $results) {
     # Loop through all selected options
-    Write-Host "Buffering..." $result.DisplayName -ForegroundColor $processMessageColor
+    Write-Host "Looping..." $result.DisplayName -ForegroundColor $processMessageColor
     # Get Service Principal using objectId
     $sp = Get-MgServicePrincipal -All | Where-Object { $_.Id -eq $result.Id }
     # Menu selection for User or Admin consent types
