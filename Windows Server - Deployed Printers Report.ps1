@@ -1,5 +1,4 @@
-#
-
+<# This script was created to provide details about the Deployed Printers within Print Management on a Windows Server. The .CSV was supplied to third-party vendor to assist their printer replacement/installation(s) while on-site. #>
 
 # Import Module
 Import-Module ActiveDirectory
