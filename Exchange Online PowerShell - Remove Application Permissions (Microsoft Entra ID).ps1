@@ -1,4 +1,4 @@
-#Remove app permissions from a Microsoft Entra ID application in a tenant. Used during the CoPilot | MS 365 CoPilot "scare". 
+#Remove app permissions from a Microsoft Entra ID application in a tenant. Used during the CoPilot | MS 365 CoPilot "scare" to remove existing user application permissions. 
 
 # Variables
 $systemMessageColor = "cyan"
