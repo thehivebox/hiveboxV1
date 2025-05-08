@@ -1,23 +1,4 @@
-<#
-    .SYNOPSIS
-    Remove-AppPermissions.ps1
-
-    .DESCRIPTION
-    Remove app permissions from a Microsoft Entra ID application in a tenant.
-
-    .LINK
-    www.alitajran.com/remove-permissions-applications/
-
-    .NOTES
-    Written by: ALI TAJRAN
-    Website:    alitajran.com
-    X:          x.com/alitajran
-    LinkedIn:   linkedin.com/in/alitajran
-
-    .CHANGELOG
-    V1.00, 11/08/2023 - Initial version
-    V1.10, 10/07/2024 - Cleaned up the code
-#>
+#Remove app permissions from a Microsoft Entra ID application in a tenant. Used during the CoPilot | MS 365 CoPilot "scare". 
 
 # Variables
 $systemMessageColor = "cyan"
@@ -25,15 +6,13 @@ $processMessageColor = "green"
 $errorMessageColor = "red"
 $warningMessageColor = "yellow"
 
-Write-Host "Script started" -ForegroundColor $systemMessageColor
-Write-Host "Script to delete app permissions from an Entra ID application in a tenant" -ForegroundColor $systemMessageColor
 
-Write-Host "Checking for Microsoft Graph PowerShell module" -ForegroundColor $processMessageColor
+Write-Host "Checking for Microsoft Graph PowerShell module..." -ForegroundColor $processMessageColor
 if (Get-Module -ListAvailable -Name Microsoft.Graph.Authentication) {
-    Write-Host -ForegroundColor $processMessageColor "Microsoft Graph PowerShell module found"
+    Write-Host -ForegroundColor $processMessageColor "Microsoft Graph PowerShell module found!"
 }
 else {
-    Write-Host "Microsoft Graph PowerShell Module not installed. Please install and re-run the script" -ForegroundColor $warningMessageColor -BackgroundColor $errorMessageColor
+    Write-Host "Microsoft Graph PowerShell Module not installed. Please install and re-run the script." -ForegroundColor $warningMessageColor -BackgroundColor $errorMessageColor
     Write-Host "You can install the Microsoft Graph PowerShell module by:"
     Write-Host "1. Launching an elevated PowerShell console then,"
     Write-Host "2. Running the command, 'Install-Module -Name Microsoft.Graph'."
@@ -46,7 +25,7 @@ Connect-MgGraph -Scopes "User.ReadWrite.All", "Application.ReadWrite.All", "Dele
 $results = Get-MgServicePrincipal -All | Select-Object Id, AppId, DisplayName | Sort-Object DisplayName | Out-GridView -PassThru -Title "Select Application (Multiple selections permitted)"
 foreach ($result in $results) {
     # Loop through all selected options
-    Write-Host "Commencing" $result.DisplayName -ForegroundColor $processMessageColor
+    Write-Host "Buffering..." $result.DisplayName -ForegroundColor $processMessageColor
     # Get Service Principal using objectId
     $sp = Get-MgServicePrincipal -All | Where-Object { $_.Id -eq $result.Id }
     # Menu selection for User or Admin consent types
@@ -57,13 +36,13 @@ foreach ($result in $results) {
 
     foreach ($consentSelect in $consentSelects) {
         # Loop through all selected options
-        Write-Host  "Commencing for" $consentSelect.Name -ForegroundColor $processMessageColor
+        Write-Host  "Commencing for:" $consentSelect.Name -ForegroundColor $processMessageColor
         # Get all delegated permissions for the service principal
         $spOAuth2PermissionsGrants = Get-MgOauth2PermissionGrant -All | Where-Object { $_.clientId -eq $sp.Id }
         $info = $spOAuth2PermissionsGrants | Where-Object { $_.consentType -eq $consentSelect.Type }
 
         if ($info) {
-            # If there are permissions set
+            #  Permissions Check
             if ($consentSelect.Type -eq "principal") {
                 # User consent
                 $usernames = [System.Collections.Generic.List[Object]]::new()
@@ -74,7 +53,7 @@ foreach ($result in $results) {
                 foreach ($selectUser in $selectUsers) {
                     # Loop through all selected options
                     $infoScopes = $info | Where-Object { $_.principalId -eq $selectUser.Id }
-                    Write-Host $consentSelect.Name "permissions for user" $selectUser.Displayname -ForegroundColor $processMessageColor
+                    Write-Host $consentSelect.Name "Permissions for user:" $selectUser.Displayname -ForegroundColor $processMessageColor
                     foreach ($infoScope in $infoScopes) {
                         Write-Host "Resource ID =", $infoScope.ResourceId
                         $assignments = $infoScope.Scope -split " "
@@ -85,7 +64,7 @@ foreach ($result in $results) {
                             }
                         }
                     }
-                    Write-Host "Select items to remove" -ForegroundColor $processMessageColor
+                    Write-Host "Select items to remove:" -ForegroundColor $processMessageColor
                     $removes = $infoScopes | Select-Object Scope, ResourceId, Id | Out-GridView -PassThru -Title "Select permissions to delete (Multiple selections permitted)"
                     foreach ($remove in $removes) {
                         Remove-MgOauth2PermissionGrant -OAuth2PermissionGrantId $remove.Id
@@ -107,18 +86,18 @@ foreach ($result in $results) {
                         }
                     }
                 }
-                Write-Host "Select items to remove" -ForegroundColor $processMessageColor
+                Write-Host "Select items to remove:" -ForegroundColor $processMessageColor
                 $removes = $infoScopes | Select-Object Scope, ResourceId, Id | Out-GridView -PassThru -Title "Select permissions to delete (Multiple selections permitted)"
                 foreach ($remove in $removes) {
                     Remove-MgOauth2PermissionGrant -OAuth2PermissionGrantId $remove.Id
-                    Write-Host "Removed consent for $($remove.Scope)" -ForegroundColor $warningMessageColor
+                    Write-Host "Removed consent for: $($remove.Scope)" -ForegroundColor $warningMessageColor
                 }
             }
         }
         else {
-            Write-Host "No" $consentSelect.Name "permissions found for" $results.DisplayName -ForegroundColor $warningMessageColor
+            Write-Host "No" $consentSelect.Name "permissions found for:" $results.DisplayName -ForegroundColor $warningMessageColor
         }
     }
 }
 
-Write-Host "Script Finished" -ForegroundColor $systemMessageColor
+Write-Host "Fin." -ForegroundColor $systemMessageColor
