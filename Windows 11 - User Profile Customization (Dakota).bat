@@ -1,3 +1,5 @@
+REM Please read each line carefully as settings may not be preferable. Settings cater to High Performance | Display Never Sleeps | Dark Theme | Windows 10/7-Esque. 
+
 @echo off
 REM Disable taskbar alignment to the center and set it to the left
 powershell.exe -Command Set-ItemProperty -Path HKCU:\software\microsoft\windows\currentversion\explorer\advanced -Name 'TaskbarAl' -Type 'DWord' -Value 0
