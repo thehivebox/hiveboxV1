@@ -1,4 +1,4 @@
-<# This was created to automate the removal of machines from a Domain, add them to a specific Workgroup, and restart the computer for the changes to take affect.
+<# This was created to automate the removal of machines from a Domain, add them to a specific Workgroup, and restart the computer for the changes to take affect while assisting a client while-on site. 
 
 # Define variable for workgroup name
 $workgroupName = "LTTO"
