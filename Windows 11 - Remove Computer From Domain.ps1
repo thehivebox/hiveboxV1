@@ -1,14 +1,9 @@
-<# This was created to automate the removal of machines from a Domain.
+<# This was created to automate the removal of machines from a Domain, add them to a specific Workgroup, and restart the computer for the changes to take affect.
 
-# Prompt for Domain Administrator Credentials | Use your own AD Credentials here.
-$domainCred = Get-Credential 
+# Define variable for workgroup name
+$workgroupName = "LTTO"
 
-# Remove from Domain 
-Remove-Computer -UnjoinDomainCredential $domainCred -PassThru -Force
+# Remove Computer from Domain 
+Remove-Computer -UnjoinDomainCredential hivenode.com\hiveadmin -PassThru -Force -Verbose -WorkgroupName $workgroupName -Restart
 
-# Notification: System Restart (Forced) | 
-Write-Host "The system will restart in 5 seconds..." -ForegroundColor Yellow
-Start-Sleep -Seconds 5
 
-# Forced Power-Cycle
-Restart-Computer -Force
