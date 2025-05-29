@@ -1,3 +1,5 @@
+#This was created to automate the upgrade from Windows 10 to Windows 11 remotely, while silent/unattended.
+
 # Assign the directory path where the temporary files and logs will be stored.
 # This creates a variable "$dir" containing the string "C:\temp\win11".
 $dir = 'C:\temp\win11'
