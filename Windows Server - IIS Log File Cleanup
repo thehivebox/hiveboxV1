@@ -1,0 +1,20 @@
+@echo off
+rem Check for admin rights by attempting a simple privileged command
+net session >nul 2>&1
+if %errorLevel% neq 0 (
+  rem Relaunch this script as admin
+  powershell -NoProfile -Command "Start-Process -FilePath '%~f0' -Verb RunAs"
+  exit /b
+)
+
+rem --- Your original cleanup logic goes below ---
+setlocal
+set "TARGET=C:\inetpub\logs\LogFiles\W3SVC1"
+if not exist "%TARGET%" exit /b 0
+pushd "%TARGET%"
+for /d %%D in (*) do rd /s /q "%%D"
+del /f /q *.*
+del /s /f /q *.log
+popd
+endlocal
+exit /b 0
