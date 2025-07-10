@@ -1,5 +1,5 @@
 @echo off
-rem Check for admin rights by attempting a simple privileged command
+rem Admin Rights Checker
 net session >nul 2>&1
 if %errorLevel% neq 0 (
   rem Relaunch this script as admin
