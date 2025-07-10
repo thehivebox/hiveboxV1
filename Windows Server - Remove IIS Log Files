@@ -7,7 +7,7 @@ if %errorLevel% neq 0 (
   exit /b
 )
 
-rem --- Your original cleanup logic goes below ---
+rem --- start
 setlocal
 set "TARGET=C:\inetpub\logs\LogFiles\W3SVC1"
 if not exist "%TARGET%" exit /b 0
