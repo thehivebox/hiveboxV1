@@ -9,7 +9,8 @@ if %errorLevel% neq 0 (
 
 rem --- start
 setlocal
-set "TARGET=C:\inetpub\logs\LogFiles\W3SVC1"
+rem --- replace x with app folder
+set "TARGET=C:\inetpub\logs\LogFiles\X"
 if not exist "%TARGET%" exit /b 0
 pushd "%TARGET%"
 for /d %%D in (*) do rd /s /q "%%D"
